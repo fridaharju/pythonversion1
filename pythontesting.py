@@ -1,6 +1,11 @@
 
 
 class Product:
+	price = 0
+	count = 0
+	tax = 0
+	name = ""
+
 	def price_with_tax(self):
 		total = self.price * self.count * self.tax
 		if total > 500:
@@ -8,21 +13,24 @@ class Product:
 		else:
 			return total
 
-	def __init__(self, price, count, tax):
+	def __init__(self, price, count, tax, name):
 		self.price = price
 		self.count = count
 		self.tax = tax
+		self.name = name
+	
+		
 
 
 
 
-robot = Product(price=900, count=2, tax=1.25)
-book = Product(price=100, count=1, tax=1.06)
-flower = Product(price=50, count=3, tax=1.25)
+products =[Product(price=900, count=2, tax=1.25, name="frida"), Product(price=100, count=1, tax=1.06, name = "the best book ever")]
 
-total_price = robot.price_with_tax() + book.price_with_tax() + flower.price_with_tax()
 
-print(total_price)
+for product in products:
+	print(product.name, product.price_with_tax())
+
+
 
 
 
