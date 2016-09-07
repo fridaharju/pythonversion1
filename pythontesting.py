@@ -1,28 +1,38 @@
 
+
 class Product:
-	price = 0
-	count = 0
-	tax = 1
-
 	def price_with_tax(self):
-		return self.price * self.count * self.tax 
+		return self.price * self.count * self.tax
 
-robot = Product()
-robot.price = 900
-robot.count = 2
-robot.tax = 1.25
+	def __init__(self, price, count, tax):
+		self.price = price
+		self.count = count
+		self.tax = tax
 
-book = Product()
-book.price = 100
-book.count = 1
-book.tax = 1.06
 
-total_price = (
-	robot.price_with_tax() +
-	book.price_with_tax()
+robot = Product(price=900, count=2, tax=1.25)
+book = Product(price=100, count=1, tax=1.06)
+
+
+
+products =[Product(price=900, count=2, tax=1.25), Product(price=100, count=1, tax=1.06)
+]
+
+print(
+	products[0].price_with_tax()+
+	products[1].price_with_tax()
 	)
 
-print (total_price) 
+total_price= 0
+for product in products:
+	total_price = total_price + product.price_with_tax()
+
+
+print(total_price)
+
+
+
+
 
 
 
